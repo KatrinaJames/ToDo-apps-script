@@ -1,22 +1,57 @@
 <!DOCTYPE html>
 
-<!-- sytles -->
+<!-- styles -->
 <link rel="stylesheet" type="text/css" href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' >
-<link rel="stylesheet" type="text/css" href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' >
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous" >
 <?!= HtmlService.createHtmlOutputFromFile('styles.css').getContent(); ?>
 
 
 
-<h1>Hello World</h1>
+
+<hr>
+<div class="jumbotron justify-content-center">
+    <h1 class="display-5">Things To-Do</h1>
+</div>
+
+<div class="container">
+  <div class="row justify-content-around">
+    <div class="col">
+      <button type="button" class="btn btn-primary" onclick="NewTodo.LaunchPopup();">
+        <i class="fas fa-plus-circle"></i>&nbsp;Create To-Do
+      </button>
+    </div>
+  </div>
+</div>
+<hr>
+
+
+
+<!-- create todo modal -->
+<div class="modal fade" id="create-todo-popup" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create To-Do</h5>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <span>Modal body goes here</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Add To-Do</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+
 
 
 
 <!-- javascript -->
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js'></script>
 
 <?!= HtmlService.createHtmlOutputFromFile('app.js').getContent(); ?>
