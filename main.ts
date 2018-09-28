@@ -3,7 +3,7 @@
 /// <reference path="node_modules/@types/jquery/index.d.ts" />
 'use strict';
 
-let google: any;
 $(document).ready(function(){
-    
+    let server: ServerBroker = new ServerBroker();
+    server.getCurrentTasks();
 });
