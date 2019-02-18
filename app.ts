@@ -14,6 +14,7 @@ class NewTask {
      */
     static LaunchPopup(): void {
         $(".modal-title").text('Create to-do');
+        // @ts-ignore
         $("#calendar").datepicker('setDate', new Date());
         $("#task-popup").modal('show');
     }
@@ -21,7 +22,7 @@ class NewTask {
 
 class CurrentTaskView {
 
-    private _taskContainer: JQuery<HTMLDivElement, HTMLElement> = $("#task-body");
+    private _taskContainer: JQuery<HTMLDivElement> = $("#task-body");
     private _rowClasses: string = "row";
     private _leftColumnClasses: string = 'col-4 text-right';
     private _editButtonClasses: string = 'btn btn-info';
@@ -37,13 +38,13 @@ class CurrentTaskView {
         let unorderedTasks: ITask[] = [];
         taskMaps.forEach((taskMap: Map<string>) => {
             let task: ITask = new ClientTask({
-                id: parseInt(taskMap['task_id']),
-                text: taskMap['task_text'],
-                date: new Date(taskMap['task_date']),
-                createdBy: taskMap['created_by'],
-                editedBy: taskMap['edited_by'],
-                created: new Date(taskMap['created_timestamp']),
-                edited: new Date(taskMap['edited_timestamp'])
+                id:         parseInt(taskMap['task_id']),
+                text:       taskMap['task_text'],
+                date:       new Date(taskMap['task_date']),
+                createdBy:  taskMap['created_by'],
+                editedBy:   taskMap['edited_by'],
+                created:    new Date(taskMap['created_timestamp']),
+                edited:     new Date(taskMap['edited_timestamp'])
             });
             unorderedTasks.push(task);
         });
